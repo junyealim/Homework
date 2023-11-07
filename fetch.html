@@ -7,11 +7,23 @@
     <style>
         table, th, td{
             border: 1px solid darkblue;
+            text-align: center;
         }
 
-        tr td {
-            background-color: rgb(243, 234, 183);
+        #parent td:first-child {
+        background-color: yellow;
+        font-weight: bold;
         }
+
+        #parent tr:first-child td {
+            background-color: orange;
+        }
+
+        #parent tr:first-child td:first-child{
+            background-color: white;
+        }
+
+
     </style>
 </head>
 <body>
