@@ -36,4 +36,4 @@ fetch('https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric
 })
 .catch((error) => {
     console.error('데이터 출력 에러');
-})
+});

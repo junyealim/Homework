@@ -3,7 +3,7 @@ fetch('https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric
     return response.json();
   })
   .then((data) => {
-    const table = document.getElementById('parent'); // 기존 테이블 가져오기
+    const table = document.getElementById('parent');
 
     for (let i = 0; i < data.dataseries.length; i++) {
       const rowData = data.dataseries[i];
