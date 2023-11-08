@@ -1,27 +1,39 @@
-var container = document.getElementById('map');
-var options = {
-    center: new kakao.maps.LatLng(35.2246964100, 128.5983270000),
-    level: 3
-};
+fetch('https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0')
+.then((response) => {
+    return response.json() // 받아온 객체를 json형식으로 변환 
+})
+.then((data)=> {
+    for(let i=0; i < data.dataseries.length; i++){
+        const row = document.createElement('tr') // 가상으로 tr태그 생성
 
-var map = new kakao.maps.Map(container, options);
-fetch('https://apis.data.go.kr/1383000/gmis/babysitEdnstServiceV2/getBabysitEdnstListV2?serviceKey=sb6FwEbehVaOSAoJo%2FiGMC8YP4pgok78k1u%2FrPkUWhB%2BPTG2OERg%2Bu%2FnDDxZt5nuTLqFaxFbBwEoVlsm7RtkYQ%3D%3D&pageNo=1&numOfRows=100&type=json')
-  .then(res => res.json())
-  .then((data) => {
-    const datalist = data.response.body.items.item
-    
-    console.log(datalist)
-  })
+        const num = i+1
+        const cell = document.createElement('td')
+        cell.innerHTML = num
 
+        const cell1 = document.createElement('td') // 가상으로 tr태그 생성
+        const timepoint = data.dataseries[i].timepoint;
+        cell1.innerHTML = timepoint
 
-/*
-eduInstNm / 센터이름
-roadNmAddr / 도로명 주소
-lat / 위도
-lot / 경도
-hmpgAddr / 홈페이지 주소
-emlAddr / 이메일 주소
-operHrCn / 운영시간
-rprsTelno / 연락처
-fxno / 팩스번호
-*/
+        const cell2 = document.createElement('td')
+        const cloudcover = data.dataseries[i].cloudcover;
+        cell2.innerHTML = cloudcover
+
+        const cell3 = document.createElement('td')
+        const seeing = data.dataseries[i].seeing;
+        cell3.innerHTML = seeing
+
+        const cell4 = document.createElement('td')
+        const transparency = data.dataseries[i].transparency;
+        cell4.innerHTML = transparency
+
+        document.getElementById('parent').appendChild(row)
+        document.getElementById('parent').appendChild(cell)
+        document.getElementById('parent').appendChild(cell1)
+        document.getElementById('parent').appendChild(cell2)
+        document.getElementById('parent').appendChild(cell3)
+        document.getElementById('parent').appendChild(cell4)
+    }
+})
+.catch((error) => {
+    console.error('데이터 출력 에러');
+});
