@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돌봄서비스</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h2 id="totaltable">아이돌봄 교육기관</h2>
+        </header>
+        <div id="menu">
+            <p><button id="menu1" type="button" onclick="RenderTable(filterSeoul, 1)">서울특별시</button></p>
+            <p><button id="menu1" onclick="RenderTable(filterGwang, 2)">광역시</button></p>
+            <p><button id="menu2" onclick="RenderTable(filterGG,3)">경기도</button></p>
+            <p><button id="menu3" onclick="RenderTable(filterGW, 4)">강원도</button></p>
+            <p><button id="menu4" onclick="RenderTable(filterCC, 5)">충청도</button></p>
+            <p><button id="menu6" onclick="RenderTable(filterJR, 6)">전라도</button></p>
+            <p><button id="menu8" onclick="RenderTable(filterGS, 7)">경상도</button></p>
+            <p><button id="menu10" onclick="RenderTable(filterJJ, 8)">제주도</button></p>
+        </div>
+        <div id="section2">
+            <p>🔔센터 이름을 클릭하면 홈페이지로 이동합니다!🔔</p>
+            <p>🔔주소를 클릭하면 하단에 지도가 표출됩니다!🔔</p>
+            <div id="list">
+
+            </div>
+            <div id="map"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=71453aa3b80f96979d6665dbda6709e6"></script>
+        <script defer src="./data.js"></script>
+        </div>
+    </div>
+</body>
+</html>
